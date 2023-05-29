@@ -20,9 +20,8 @@ export const read = [
   validateRequestData(validators.read),
   async (req: any, res: any) => {
     const { _id } = req.params;
-    const { adminId } = req.user;
     try {
-      const article = await Article.findOne({ _id, adminId });
+      const article = await Article.findOne({ _id });
       if (article) {
         return respond.success({ res, data: article });
       } else {

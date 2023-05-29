@@ -1,14 +1,15 @@
 import Joi from "joi";
+import { MONGODB_OBJECT_ID } from "../constants/regex";
 
 export const read = {
   params: {
-    _id: Joi.string().allow("").required(),
+    _id: Joi.string().pattern(new RegExp(MONGODB_OBJECT_ID)).required(),
   },
 };
 
 export const _delete = {
   params: {
-    _id: Joi.string().allow("").required(),
+    _id: Joi.string().pattern(new RegExp(MONGODB_OBJECT_ID)).required(),
   },
 };
 

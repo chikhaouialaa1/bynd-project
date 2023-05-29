@@ -8,6 +8,6 @@ const root = express.Router();
 
 root.use("/auth", authRouter);
 root.use("/admin", checkToken, adminArticlesRouter);
-root.use("/user", checkToken, userArticlesRouter);
+root.use("/user", userArticlesRouter);
 
 export default root;

@@ -30,3 +30,21 @@ export const read = [
     }
   },
 ];
+
+// export const search = [
+//   // validateRequestData(validators.read),
+//   async (req: any, res: any) => {
+//     console.log(">>>>>> seravh bar");
+//     //   const { _id } = req.params;
+//     //   try {
+//     //     const article = await Article.findOne({ _id });
+//     //     if (article) {
+//     //       return respond.success({ res, data: article });
+//     //     } else {
+//     //       respond.notFound(res);
+//     //     }
+//     //   } catch (e) {
+//     //     return respond.notFound({ res, data: e });
+//     //   }
+//   },
+// ];

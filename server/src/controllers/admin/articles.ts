@@ -7,7 +7,7 @@ export const list = [
   async (req: any, res: any) => {
     try {
       const { adminId } = req.user;
-      const articles = await Article.find({ adminId });
+      const articles = await Article.find({ adminId }).sort({ created_at: -1 });
       return respond.success({ res, data: articles });
     } catch (e) {
       return respond.notFound({ res, data: e });

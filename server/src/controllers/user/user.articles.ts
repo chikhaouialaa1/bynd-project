@@ -6,7 +6,7 @@ import * as validators from "../../validators/articles";
 export const list = [
   async (req: any, res: any) => {
     try {
-      const articles = await Article.find({});
+      const articles = await Article.find({}).sort({ created_at: -1 });
       return respond.success({ res, data: articles });
     } catch (e) {
       return respond.notFound({ res, data: e });

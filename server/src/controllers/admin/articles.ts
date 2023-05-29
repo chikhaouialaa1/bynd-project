@@ -1,5 +1,4 @@
 import { Article } from "../../models/admins.articles";
-import { Admin } from "../../models/admins";
 import { respond } from "../../utils/responder";
 import { validateRequestData } from "../../utils/validators";
 import * as validators from "../../validators/articles";

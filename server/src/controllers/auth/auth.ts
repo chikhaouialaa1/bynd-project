@@ -68,3 +68,31 @@ export const register = [
     }
   },
 ];
+
+export const me = [
+  async (req: any, res: any) => {
+    if (req.user.adminId) {
+      try {
+        const user = await Admin.findOne({ _id: req.user.adminId });
+        if (user) {
+          const { _id, firstname, lastname, email } = user;
+          return respond.success({
+            res,
+            data: {
+              _id,
+              firstname,
+              lastname,
+              email,
+            },
+          });
+        } else {
+          respond.notFound(res);
+        }
+      } catch (e) {
+        return respond.notFound({ res, data: e });
+      }
+    } else {
+      return respond.notFound({ res });
+    }
+  },
+];

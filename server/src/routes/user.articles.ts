@@ -7,6 +7,6 @@ const basePath = "/articles/";
 
 router.get(`${basePath}:_id`, ...mw.read);
 router.get(basePath, ...mw.list);
-// router.get(basePath, ...mw.search);
+router.post(basePath, ...mw.search);
 
 export default router;

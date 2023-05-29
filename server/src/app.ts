@@ -14,7 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     // @ts-ignore
-    origin: config.clientOrigins[config.nodeEnv],
+	//    origin: config.clientOrigins[config.nodeEnv],
+	    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 

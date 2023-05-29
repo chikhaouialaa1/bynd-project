@@ -21,6 +21,12 @@ export const create = {
   },
 };
 
+export const search = {
+  body: {
+    search: Joi.string().allow(""),
+  },
+};
+
 export const update = {
   body: {
     name: Joi.string().allow(""),

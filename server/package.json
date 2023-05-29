@@ -7,7 +7,6 @@
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/src/index.js",
     "dev": "ts-node-dev --watch .env, src src/index.ts"
   },
   "dependencies": {

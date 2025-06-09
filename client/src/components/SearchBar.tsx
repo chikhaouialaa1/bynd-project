@@ -29,7 +29,7 @@ export const SearchBar = ({ setData, refreshData }) => {
             >
                 <Input
                     onChange={handleChange}
-                    placeholder="search article or type article name…"
+                    placeholder="search request or type request ID…"
                 />
             </Box>
         </>

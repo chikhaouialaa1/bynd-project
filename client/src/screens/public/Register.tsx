@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Card, TextField, Grid, Box } from "@mui/material";
 import { LoadingButton } from '@mui/lab';
-import * as API from "../api/auth";
-import { routes } from '../constants/routes'
-import { EMAIL } from '../constants/regex'
+import * as API from "../../api/auth";
+import { routes } from '../../constants/routes'
+import { EMAIL } from '../../constants/regex'
 
 export const Register = () => {
     const navigate = useNavigate()

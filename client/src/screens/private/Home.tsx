@@ -1,7 +1,7 @@
 import { Card, Box, Grid } from "@mui/material";
-import { TopBar } from "../components/TopBar";
-import { AdminArticleListing } from "../components/AdminArticleListing";
-
+import { TopBar } from "../../components/TopBar";
+import { RequestsList } from "../../components/RequestsList";
+import { AgentButton } from '../../components/AgentButton'
 export const Home = () => {
     return (
         <>
@@ -13,9 +13,10 @@ export const Home = () => {
             >
                 <Card
                 >
-                    <AdminArticleListing />
+                    <RequestsList />
                 </Card>
             </Box>
+            <AgentButton />
         </>
     );
 };

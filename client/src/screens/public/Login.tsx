@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Card, TextField, Grid, Box, Typography, Link } from "@mui/material";
 import { LoadingButton } from '@mui/lab';
-import * as API from "../api/auth";
-import { setAccessToken } from '../utils/auth'
-import { routes } from '../constants/routes'
-import { EMAIL } from '../constants/regex'
+import * as API from "../../api/auth";
+import { setAccessToken } from '../../utils/auth'
+import { routes } from '../../constants/routes'
+import { EMAIL } from '../../constants/regex'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -39,7 +39,7 @@ export const Login = () => {
   };
   return (
     <>
-      <h1> Bynd Project</h1>
+      <h1> SABA</h1>
       <Box
         sx={{
           display: 'flex',

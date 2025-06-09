@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Grid, MenuItem, Container, Menu, Typography, Toolbar, Box, AppBar } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import ChatIcon from '@mui/icons-material/Chat';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import WebAssetIcon from '@mui/icons-material/WebAsset';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
+import { AgentChatUrl } from '../constants/externalUrls'
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import { routes } from '../constants/routes'
 import {
     getAccessToken,
@@ -13,7 +15,7 @@ import {
 
 export const TopBar = () => {
     const navigate = useNavigate()
-    const settings = ['Home', 'Add Article', 'Logout'];
+    const settings = ['Home', 'Logout'];
     const [anchorElUser, setAnchorElUser] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
     useEffect(() => {
@@ -34,9 +36,6 @@ export const TopBar = () => {
                 navigate(routes.home)
                 break;
             case 1:
-                navigate(routes.addArticle)
-                break;
-            case 2:
                 removeAccessToken()
                 navigate(routes.login)
                 break;
@@ -47,13 +46,26 @@ export const TopBar = () => {
         setAnchorElUser(null);
     };
 
+    const handleQueryMenu = () => {
+        navigate(routes.Request)
+    };
+
 
     const handleHomeClick = () => {
         navigate(routes.home)
     };
 
-    const handleAddArticleClick = () => {
-        navigate(routes.addArticle)
+    const handleDashboardClick = () => {
+        navigate(routes.dashboard)
+    };
+
+
+    const handleChatClick = () => {
+        window.open(
+            AgentChatUrl,
+            '_blank',
+            'noopener,noreferrer,width=1000,height=800,left=200,top=200'
+        )
     };
 
 
@@ -117,13 +129,14 @@ export const TopBar = () => {
                                         cursor: 'pointer'
                                     }}
                                 >
-                                    <img
+                                    SABA
+                                    {/* <img
                                         style={{
                                             width: "129px",
                                             height: "37px"
                                         }}
-                                        src={'https://bynd.fr/wp-content/uploads/2020/05/logo-bynd.svg'}
-                                    />
+                                        src={AgentChatUrl}
+                                    /> */}
                                 </Typography>
                             </Grid>
                             <Grid item md={10} xs={0} />
@@ -134,25 +147,37 @@ export const TopBar = () => {
                                 }} >
                                     <Box>
                                         <IconButton
-                                            onClick={handleHomeClick}
+                                            title='Dashboard'
+                                            onClick={handleDashboardClick}
                                         >
-                                            <HomeIcon />
+                                            <QueryStatsIcon />
                                         </IconButton>
                                     </Box>
                                     {
-                                        currentUser &&
                                         <Box>
                                             <IconButton
-                                                onClick={handleAddArticleClick}
+                                                title='Agent'
+                                                onClick={handleChatClick}
                                             >
-                                                <BusinessCenterIcon />
+                                                <ChatIcon />
                                             </IconButton>
                                         </Box>
                                     }
                                     {
-                                        currentUser &&
                                         <Box>
                                             <IconButton
+                                                title='Query'
+                                                onClick={handleQueryMenu}
+                                            >
+                                                <WebAssetIcon />
+                                            </IconButton>
+                                            <MyMenu />
+                                        </Box>
+                                    }
+                                    {
+                                        <Box>
+                                            <IconButton
+                                                title='Profile'
                                                 onClick={handleOpenUserMenu}
                                             >
                                                 <AccountCircleIcon />

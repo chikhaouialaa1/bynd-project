@@ -2,9 +2,8 @@ import { Box, TableContainer, Grid, IconButton, Button, Table, TableRow, TableCe
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
-import { TopBar } from "../components/TopBar";
-import { SearchBar } from "../components/SearchBar";
-import { DeletingModal } from "../components/DeletingModal";
+import { SearchBar } from "./SearchBar";
+import { DeletingModal } from "./DeletingModal";
 import { routes } from '../constants/routes'
 import * as API from "../api/admin.articles";
 import * as PUBLIC_API from "../api/public";
@@ -17,7 +16,7 @@ import {
 
 import { useEffect, useState } from 'react'
 // @ts-ignore
-export const AdminArticleListing = () => {
+export const RequestsList = () => {
     const [articles, setArticles] = useState([])
     const navigate = useNavigate()
     const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -31,6 +30,19 @@ export const AdminArticleListing = () => {
         { title: 'Description', width: 170 },
         { title: '-', width: 30 },
     ];
+
+
+    useEffect(() => {
+        // EXAMPLE
+        const myTestData = [{
+            _id: '1',
+            name: 'test Ala',
+            author: 'Ala',
+            description: 'Ceci est un article fictif pour test.',
+            created_at: new Date().toISOString()
+        }];
+        setArticles(myTestData)
+    }, []);
 
     const fetchData = () => {
         if (getAccessToken()) {
